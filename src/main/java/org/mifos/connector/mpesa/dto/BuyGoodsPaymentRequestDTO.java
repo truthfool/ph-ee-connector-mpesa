@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.mifos.connector.mpesa.utility.MpesaUtils;
 
+import java.math.BigDecimal;
+
 /**
  * {
  * "BusinessShortCode": 174379,
@@ -38,7 +40,7 @@ public class BuyGoodsPaymentRequestDTO {
     private String transactionType;
 
     @JsonProperty("Amount")
-    private Long amount;
+    private BigDecimal amount;
 
     @JsonProperty("PartyA")
     private Long partyA;
