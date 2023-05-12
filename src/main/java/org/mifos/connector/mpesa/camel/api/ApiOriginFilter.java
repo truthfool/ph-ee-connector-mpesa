@@ -2,6 +2,7 @@ package org.mifos.connector.mpesa.camel.api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-09-27T11:46:46.417Z[GMT]")
+@Component
 public class ApiOriginFilter implements Filter {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -45,6 +47,7 @@ public class ApiOriginFilter implements Filter {
                          FilterChain chain) throws IOException, ServletException {
         HttpServletResponse res = (HttpServletResponse) response;
         HttpServletRequest req = (HttpServletRequest) request;
+        logger.info("Calling Function to log headers");
         getClientIpAddress(req);
         res.addHeader("Access-Control-Allow-Origin", "*");
         res.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
